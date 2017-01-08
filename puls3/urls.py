@@ -6,7 +6,9 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'puls3.views.home', name='home'),
+    url(r'^$', 'app.views.home', name='home'),
+    url(r'^post/(\d+)$', 'app.views.post', name='post'),
+    url(r'^live/(\d+)/curso/(\d+)$', 'app.views.live', name='live'),
     # url(r'^puls3/', include('puls3.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
