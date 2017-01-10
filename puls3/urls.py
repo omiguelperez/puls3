@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'app.views.home', name='home'),
     url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
     url(r'^minus/(\d+)$', 'app.views.minus', name='minus'),
+    url(r'^categoria/(\d+)$', 'app.views.categoria', name='categoria'),
     # url(r'^puls3/', include('puls3.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
