@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'app.views.home', name='home'),
+    url(r'^add$', 'app.views.add', name='add'),
     url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
     url(r'^minus/(\d+)$', 'app.views.minus', name='minus'),
     url(r'^categoria/(\d+)$', 'app.views.categoria', name='categoria'),
