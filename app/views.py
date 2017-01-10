@@ -1,14 +1,9 @@
 # Create your views here.
 
-from django.http import HttpResponse
-from django.template.loader import get_template
-from django.template.context import Context
+from django.shortcuts import render_to_response
 from .models import Categoria, Enlace
 
 def home(request):
     categorias = Categoria.objects.all()
     enlaces = Enlace.objects.all()
-    template = get_template('index.html')
-    context = Context({ "categorias": categorias, "enlaces": enlaces })
-    html = template.render(context)
-    return HttpResponse(html)
+    return render_to_response('index.html', { "categorias": categorias, "enlaces": enlaces })
