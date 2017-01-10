@@ -39,6 +39,10 @@
 			<p>Es importante registrarte porque LOL!</p>
 			<a id="registro" href="#">Registrate acá</a>
 			<p id="mensaje_registro">En serio, registrate por favor</p>
+		{% else %}
+			<p>
+				Hola <strong>{{ request.user.username }}</strong>
+			</p>
 		{% endif %}
 	</aside>
 	<section id="contenido">
