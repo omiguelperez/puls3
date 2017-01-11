@@ -19,3 +19,20 @@ class Enlace(models.Model):
 
     def __unicode__(self):
         return '%s - %s' % (self.titulo, self.enlace)
+
+    def mis_votos_en_imagen_rosada(self):
+        return 'http://placehold.it/250x150/E8117F/FFFFFF?text=%s+votos' % self.votos
+
+    def es_popular(self):
+        return self.votos > 10
+    es_popular.boolean = True
+
+class Agregador(models.Model):
+    titulo = models.CharField(max_length=140)
+    enlaces = models.ManyToManyField(Enlace)
+
+    class Meta:
+        verbose_name_plural = 'Agregadores'
+
+    def __unicode__(self):
+        return self.titulo
