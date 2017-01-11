@@ -44,3 +44,20 @@ class EnlaceTest(TestCase):
         self.client.login(username='miusuario', password='claveusuario')
         response = self.client.get(reverse('add'))
         self.assertEqual(response.status_code, 200)
+
+    def test_add(self):
+        self.client.login(username='miusuario', password='claveusuario')
+
+        data = {}
+        data['titulo'] = 'Titulo del enlace'
+        data['enlace'] = 'https://google.com/'
+        data['categoria'] = self.categoria.id
+
+        response = self.client.post(reverse('add'), data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Enlace.objects.count(), 1)
+
+        enlace = Enlace.objects.all()[0]
+        self.assertEqual(enlace.titulo, data['titulo'])
+        self.assertEqual(enlace.enlace, data['enlace'])
+        self.assertEqual(enlace.categoria, self.categoria)
