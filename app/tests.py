@@ -6,15 +6,18 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 from .models import Categoria, Enlace
 
 class EnlaceTest(TestCase):
+    def setUp(self):
+        self.categoria = Categoria.objects.create(titulo='Categoria de prueba')
+        self.usuario = User.objects.create_user(username='miusuario', password='claveusuario')
+
     def test_es_popular(self):
-        categoria = Categoria.objects.create(titulo='Categoria de prueba')
-        usuario = User.objects.create_user(username='miusuario', password='claveusuario')
         enlace = Enlace.objects.create(titulo='Enlace de prueba',
-            enlace='http://google.com', categoria=categoria, usuario=usuario)
+            enlace='http://google.com', categoria=self.categoria, usuario=self.usuario)
 
         # Probar que el enlace no es popular
         self.assertEqual(enlace.votos, 0)
@@ -27,3 +30,17 @@ class EnlaceTest(TestCase):
         self.assertEqual(enlace.votos, 20)
         self.assertEqual(enlace.es_popular(), True)
         self.assertTrue(enlace.es_popular())
+
+    def test_views(self):
+        response = self.client.get(reverse('home'))
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.get(reverse('enlaces'))
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.get(reverse('about'))
+        self.assertEqual(response.status_code, 200)
+
+        self.client.login(username='miusuario', password='claveusuario')
+        response = self.client.get(reverse('add'))
+        self.assertEqual(response.status_code, 200)
