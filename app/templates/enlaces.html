@@ -1,0 +1,27 @@
+<section id="contenido">
+  {% if enlaces %}
+    {% for enlace in enlaces %}
+      <article class="item">
+        <figure class="imagen_item">
+          <img src="imagen.jpg" />
+        </figure>
+        <h2 class="titulo_item">
+          <a href="{{enlace.enlace}}">{{enlace.titulo}}</a>
+        </h2>{{enlace.usuario}}</a>
+        </p>
+        <p class="datos_item">
+          <a class="tag_item" href="#">{{enlace.categoria}}</a>
+          <span class="fecha_item">Hace <strong>{{enlace.timestamp|timesince}}</strong> min</span>
+          <a class="guardar_item" href="#"></a>
+        </p>
+        <p class="votacion">
+          <a class="up" href="{% url "plus" enlace.pk %}"></a>
+          {{enlace.votos}}
+          <a class="down" href="{% url "minus" enlace.pk %}"></a>
+        </p>
+      </article>
+    {% endfor %}
+  {% else %}
+    NO HAY ENLACES GUARDADOS
+  {% endif %}
+</section>

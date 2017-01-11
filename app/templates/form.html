@@ -13,26 +13,8 @@
 		<link rel="stylesheet" href="/static/responsive.css" />
 	</head>
 	<body>
-		<!-- comentario de lo que sea -->
-		<header>
-			<figure id="logo">
-				<img src="logo.png" />
-			</figure>
-			<h1 id="titulo_header">Puls3: Comunidad de gente cool, atractiva y millonaria</h1>
-			<figure id="avatar">
-				<img src="avatar.jpg" />
-				<figcaption></figcaption>
-			</figure>
-		</header>
-		<nav>
-			<ul>
-				<li id="flechita_nav"><a href="#"></a></li>
-				{% for cat in categorias %}
-					<li><a href="{% url "categoria" cat.pk %}">{{cat}}</a></li>
-				{% endfor %}
-				<li id="publicar_nav"><a href="#">Publicar</a></li>
-			</ul>
-		</nav>
+		{% include "header.html" %}
+		{% include "nav.html" %}
 		<section id="contenido">
 			<form method="post">
 				<div id="form">
@@ -42,9 +24,6 @@
 				</div>
 			</form>
 		</section>
-		<footer>
-			<p><strong>Powered by Platzi!</strong></p>
-			<p>Mejorando.la 2013 ®</p>
-		</footer>
+		{% include "footer.html" %}
 	</body>
 </html>
