@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.template.context import RequestContext
+from django.views.generic import DetailView, ListView
 from .forms import EnlaceForm
 from .models import Categoria, Enlace
 
@@ -45,3 +46,12 @@ def minus(request, enlace_id):
     enlace.votos = enlace.votos - 1
     enlace.save()
     return HttpResponseRedirect('/')
+
+class EnlaceListView(ListView):
+    model = Enlace
+    context_object_name = 'enlaces'
+    template_name = 'index.html'
+
+class EnlaceDetailView(DetailView):
+    model = Enlace
+    template_name = 'index.html'
