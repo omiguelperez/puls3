@@ -9,7 +9,9 @@ from django.views.generic import DetailView, ListView
 from rest_framework import viewsets
 from .forms import EnlaceForm
 from .models import Categoria, Enlace
-from .serializers import EnlaceSerializer, UserSerializer
+from .serializers import CategoriaSerializer, EnlaceSerializer, UserSerializer
+
+# Views
 
 def home(request):
     categorias = Categoria.objects.all()
@@ -50,6 +52,8 @@ def minus(request, enlace_id):
     enlace.save()
     return HttpResponseRedirect('/')
 
+# Class-Based Views
+
 class EnlaceListView(ListView):
     model = Enlace
     context_object_name = 'enlaces'
@@ -58,6 +62,12 @@ class EnlaceListView(ListView):
 class EnlaceDetailView(DetailView):
     model = Enlace
     template_name = 'index.html'
+
+# API ViewSets
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
 
 class EnlaceViewSet(viewsets.ModelViewSet):
     queryset = Enlace.objects.all()

@@ -7,9 +7,11 @@ admin.autodiscover()
 from django.views.generic import TemplateView
 from rest_framework import routers
 from app.views import EnlaceDetailView, EnlaceListView
-from app.views import EnlaceViewSet, UserViewSet
+from app.views import CategoriaViewSet, EnlaceViewSet, UserViewSet
 
+# API Router
 router = routers.DefaultRouter()
+router.register(r'categories', CategoriaViewSet)
 router.register(r'links', EnlaceViewSet)
 router.register(r'users', UserViewSet)
 
