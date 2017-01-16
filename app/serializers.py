@@ -5,7 +5,7 @@ from .models import Categoria, Enlace
 class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Categoria
-        fields = ('titulo',)
+        fields = ('url', 'titulo',)
 
 class EnlaceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
