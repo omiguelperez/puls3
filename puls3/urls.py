@@ -1,37 +1,21 @@
-from django.conf.urls import patterns, include, url
+"""puls3 URL Configuration
 
-# Uncomment the next two lines to enable the admin:
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import url
 from django.contrib import admin
-admin.autodiscover()
 
-from django.views.generic import TemplateView
-from rest_framework import routers
-from app.views import EnlaceDetailView, EnlaceListView
-from app.views import CategoriaViewSet, EnlaceViewSet, UserViewSet
-
-# API Router
-router = routers.DefaultRouter()
-router.register(r'categories', CategoriaViewSet)
-router.register(r'links', EnlaceViewSet)
-router.register(r'users', UserViewSet)
-
-urlpatterns = patterns('',
-    # Examples:
-    url(r'^api/', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^$', 'app.views.home', name='home'),
-    url(r'^add$', 'app.views.add', name='add'),
-    url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
-    url(r'^minus/(\d+)$', 'app.views.minus', name='minus'),
-    url(r'^categoria/(\d+)$', 'app.views.categoria', name='categoria'),
-    url(r'^about/$', TemplateView.as_view(template_name='index.html'), name='about'),
-    url(r'^enlaces/$', EnlaceListView.as_view(), name='enlaces'),
-    url(r'^enlace/(?P<pk>[\d]+)$', EnlaceDetailView.as_view(), name='enlace'),
-    # url(r'^puls3/', include('puls3.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-)
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+]
