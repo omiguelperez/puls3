@@ -54,3 +54,19 @@ class EnlaceListView(ListView):
 class EnlaceDetailView(DetailView):
     model = Enlace
     template_name = 'index.html'
+
+from django.contrib.auth.models import User
+from rest_framework import viewsets
+from .serializers import CategoriaSerializer, EnlaceSerializer, UserSerializer
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class EnlaceViewSet(viewsets.ModelViewSet):
+    queryset = Enlace.objects.all()
+    serializer_class = EnlaceSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
