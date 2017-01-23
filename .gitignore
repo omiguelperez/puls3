@@ -92,3 +92,4 @@ ENV/
 
 # Custom ignored files
 database
+*.sqlite3
