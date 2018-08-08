@@ -93,3 +93,4 @@ ENV/
 # Custom ignored files
 database
 *.sqlite3
+.vscode/

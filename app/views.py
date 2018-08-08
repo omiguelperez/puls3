@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, DetailView
+from rest_framework import viewsets
 from .forms import EnlaceForm
 from .models import Categoria, Enlace
-
-# Create your views here.
+from .serializers import CategoriaSerializer, EnlaceSerializer, UserSerializer
 
 def home(request):
     categorias = Categoria.objects.all()
@@ -55,9 +56,7 @@ class EnlaceDetailView(DetailView):
     model = Enlace
     template_name = 'index.html'
 
-from django.contrib.auth.models import User
-from rest_framework import viewsets
-from .serializers import CategoriaSerializer, EnlaceSerializer, UserSerializer
+
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
