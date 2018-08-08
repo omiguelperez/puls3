@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
+    'django_s3_storage',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +126,11 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = []
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+DEFAULT_FILE_STORAGE = "django_s3_storage.storage.S3Storage"
+STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
+
+AWS_REGION = "sa-east-1"
+AWS_S3_BUCKET_NAME_STATIC = "puls3prod"
+AWS_ACCESS_KEY_ID = "AKIAIQ5VVH4UOLZUTJ2Q"
+AWS_SECRET_ACCESS_KEY = "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"
+

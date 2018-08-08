@@ -1,6 +1,6 @@
 <nav>
   <ul>
-    <li id="flechita_nav"><a href="/"></a></li>
+    <li id="flechita_nav"><a href="/"><i class="fas fa-arrow-circle-left"></i></a></li>
     {% for item in menu %}
       <li><a href="{{ item.url }}" {% if item.active%}style="color: yellow;"{% endif %}>{{ item.name }}</a></li>
     {% endfor %}
@@ -8,10 +8,12 @@
 </nav>
 <nav>
   <ul>
-    <li id="flechita_nav"><a href="/"></a></li>
+    <li id="flechita_nav"><a href="/"><i class="fas fa-arrow-circle-left"></i></a></li>
     {% for cat in categorias %}
       <li><a href="{% url "categoria" cat.pk %}">{{cat}}</a></li>
     {% endfor %}
-    <li id="publicar_nav"><a href="{% url "add" %}">Publicar</a></li>
+    <li id="publicar_nav">
+        <a href="{% url "add" %}">Publicar <i class="fas fa-pen-nib"></i></a>
+    </li>
   </ul>
 </nav>

@@ -15,12 +15,16 @@
         <p class="datos_item">
           <a class="tag_item" href="#">{{enlace.categoria}}</a>
           <span class="fecha_item">Hace <strong>{{enlace.timestamp|timesince}}</strong> min</span>
-          <a class="guardar_item" href="#"></a>
+          <a class="guardar_item" href="#"><i class="fas fa-star"></i></a>
         </p>
         <p class="votacion">
-          <a class="up" href="{% url "plus" enlace.pk %}"></a>
+          <a class="up" href="{% url "plus" enlace.pk %}">
+              <i class="fas fa-arrow-circle-up"></i>
+          </a>
           {{enlace.votos}}
-          <a class="down" href="{% url "minus" enlace.pk %}"></a>
+          <a class="down" href="{% url "minus" enlace.pk %}">
+              <i class="fas fa-arrow-circle-down"></i>
+          </a>
         </p>
       </article>
     {% endfor %}

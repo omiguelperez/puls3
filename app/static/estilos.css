@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.ttf') format('truetype'),
-		url('fonts/icomoon.svg#icomoon') format('svg');
+	src:url('./fonts/icomoon.eot');
+	src:url('./fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('./fonts/icomoon.woff') format('woff'),
+		url('./fonts/icomoon.ttf') format('truetype'),
+		url('./fonts/icomoon.svg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -21,9 +21,6 @@ body
 	font-size: 16px;
 	margin: 0;
 }
-/*
-comentario de lo que sea
-*/
 footer
 {
 	background: #434343;
@@ -73,12 +70,9 @@ header #avatar figcaption
 	height: 50px;
 	line-height: 50px;
 }
-header #avatar figcaption:after
-{
-	content: "\e001";
-	font-family: "icomoon";
-	font-size: 0.7em;
-	opacity: 0.5;
+header #avatar figcaption i {
+    opacity: 0.5;
+    padding: .1em;
 }
 header #avatar img
 {
@@ -118,11 +112,11 @@ nav #flechita_nav a
 	padding: 0.5em 0;
 	text-decoration: none;
 }
-nav #flechita_nav a:after
+nav #flechita_nav i
 {
-	content: "\e000";
-	font-family: "icomoon";
+    margin: 0;
 	opacity: 0.6;
+    padding: 0 .3em;
 }
 nav #publicar_nav
 {
@@ -133,12 +127,11 @@ nav #publicar_nav
 	padding-right: 1em;
 	position: relative;
 }
-nav #publicar_nav:after
+nav #publicar_nav i
 {
 	color: rgba(255,255,255,0.5);
-	content:  "\e004";
-	font-family: "icomoon";
-	font-size: 1.8em;
+	font-size: 1.5em;
+    padding: .2em;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -198,11 +191,10 @@ nav #publicar_nav a
 	margin: 0 1em;
 	text-decoration: none;
 }
-#contenido .item .datos_item .guardar_item:after
+#contenido .item .datos_item .guardar_item i
 {
 	color: #CCC;
-	content: "\e003";
-	font-family: "icomoon";
+    padding: .2em;
 }
 #contenido .item .datos_item .tag_item
 {
@@ -248,22 +240,21 @@ nav #publicar_nav a
 {
 	text-decoration: none;
 }
-#contenido .item .votacion .down:after,
-#contenido .item .votacion .up:after
+#contenido .item .votacion .down i,
+#contenido .item .votacion .up i
 {
-	font-family: "icomoon";
-	font-size: 1.5em;
+    display: inline-block;
+    font-size: 1.2em;
+    padding: 0 .1em;
 	vertical-align: bottom;
 }
-#contenido .item .votacion .down:after
+#contenido .item .votacion .down
 {
 	color: red;
-	content: "\e001";
 }
-#contenido .item .votacion .up:after
+#contenido .item .votacion .up
 {
 	color: green;
-	content: "\e002";
 }
 
 
